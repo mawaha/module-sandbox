@@ -4,7 +4,7 @@ module-sandbox
 Description
 -----------
 
-A library agnostic module/plugin framework. Easily register modules. Selectively initialise them. Interact with module apis in sandbox. Inject dependencies.
+A library agnostic module/plugin framework. Register modules. Selectively initialise them. Pass in options. Interact with module apis in sandbox.
 
 Instructions
 ------------
@@ -16,8 +16,7 @@ CC.registerModule("myModuleName", function(){
   var doSomethingAwesome = function(){
     console.log("Awesomeness!");
   };
-  
-  
+
   return {
     doSomethingAwesome: doSomethingAwesome
   };
