@@ -1,0 +1,83 @@
+{
+	"dest": {
+		"path": "public",
+		"scripts": {
+			"path": "<%= config.dest.path %>/js",
+			"vendor": {
+				"path": "<%= config.dest.scripts.path %>/vendor"
+			}
+		},
+		"styles": {
+			"path": "<%= config.dest.path %>/css"
+		},
+		"templates": {
+			"path": "<%= config.dest.path %>/templates"
+		},
+		"images": {
+			"path": "<%= config.dest.path %>/images"
+		},
+		"fonts": {
+			"path": "<%= config.dest.path %>/fonts"
+		}
+	},
+	"src": {
+		"path": "src",
+		"scripts": {
+			"path": "<%= config.src.path %>/scripts",
+			"coffeescript": {
+				"path": "<%= config.src.scripts.path %>/coffee"
+			},
+			"javascript": {
+				"path": "<%= config.src.scripts.path %>/js"
+			},
+			"tests": {
+				"path": "<%= config.src.scripts.path %>/tests"
+			}
+		},
+		"styles": {
+			"path": "<%= config.src.path %>/styles",
+			"less": {
+				"path": "<%= config.src.styles.path %>/less"
+			},
+			"sass": {
+				"path": "<%= config.src.styles.path %>/sass"
+			},
+			"css": {
+				"path": "<%= config.src.styles.path %>/css"
+			}
+		},
+		"templates": {
+			"path": "<%= config.src.path %>/templates"
+		},
+		"images": {
+			"path": "<%= config.src.path %>/images"
+		},
+		"fonts": {
+			"path": "<%= config.src.path %>/fonts"
+		},
+		"temp": {
+			"path": "<%= config.src.path %>/tmp"
+		}
+	},
+	"vendor_scripts": {
+		"path": "bower_components",
+		"bootstrap": [
+			"<%= config.vendor_scripts.path %>/bootstrap/js/affix.js",
+			"<%= config.vendor_scripts.path %>/bootstrap/js/alert.js",
+			"<%= config.vendor_scripts.path %>/bootstrap/js/button.js",
+			"<%= config.vendor_scripts.path %>/bootstrap/js/carousel.js",
+			"<%= config.vendor_scripts.path %>/bootstrap/js/collapse.js",
+			"<%= config.vendor_scripts.path %>/bootstrap/js/dropdown.js",
+			"<%= config.vendor_scripts.path %>/bootstrap/js/modal.js",
+			"<%= config.vendor_scripts.path %>/bootstrap/js/tooltip.js",
+			"<%= config.vendor_scripts.path %>/bootstrap/js/popover.js",
+			"<%= config.vendor_scripts.path %>/bootstrap/js/scrollspy.js",
+			"<%= config.vendor_scripts.path %>/bootstrap/js/tab.js",
+			"<%= config.vendor_scripts.path %>/bootstrap/js/transition.js",
+			"<%= config.vendor_scripts.path %>/bootstrap/js/transition.js"
+		],
+		"modernizr": [
+			"<%= config.vendor_scripts.path %>/modernizr/modernizr.js"
+		]
+	}
+}
