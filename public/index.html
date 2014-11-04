@@ -4,6 +4,17 @@
 	<title>Modwork</title>
 </head>
 <body>
-<h1>Plugin Framework</h1>
+	<h1>Plugin Framework</h1>
+
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="/js/modwork.min.js"></script>
+	<script>
+	(function(){
+		var scope = document.querySelectorAll('div');
+		CC(scope, 'clearfield', function(clearfield){
+			// Do Stuff Here
+		});
+	})();
+	</script>
 </body>
 </html>

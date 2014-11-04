@@ -1,3 +1,10 @@
+/*!
+ * modwork version: 1.0.0
+ * 
+ * Copyright 2014  
+ * Distributed under the  license
+ * https://github.com/mawaha/module-sandbox
+ */
 /* Polyfills */
 if(!Array.isArray) {
 	Array.isArray = function(arg) {
@@ -279,23 +286,14 @@ if(!Array.isArray) {
 	CC.extend = extend;
 
 	CC.extend({
-		/* test-code */
-		modules: modules,
-		Init: Init,
-		merge: merge,
-		isArrayLike: isArrayLike,
-		isEmptyObject: isEmptyObject,
-		makeArray: makeArray,
-		/* end-test-code */
+
 		version: "0.0.1",
 		description: "",
 		registerModule: registerModule
 	});
 
 	Init.prototype = {
-		/* test-code */
-		// modules: modules,
-		/* end-test-code */
+
 		initModules: initModules,
 		merge: merge,
 		makeArray: makeArray,
@@ -306,3 +304,35 @@ if(!Array.isArray) {
 	window.CC = CC;
 
 })(this, this.document);
+(function($){
+	CC.registerModule("clearfield", function(options){
+
+		var methods, settings, onBlur, onFocus;
+
+		options = options || [];
+
+		settings = CC.extend({
+			target: '[data-clearfield]'
+		}, options);
+
+		onFocus = function() {
+			if (this.defaultValue === this.value) {
+				this.value = '';
+			}
+		};
+		onBlur = function() {
+			if (!this.value.length) {
+				this.value = this.defaultValue;
+			}
+		};
+		var stuff = $(settings.target).focus(onFocus).blur(onBlur);
+
+		return {
+			clearAll: function(){
+				$(settings.target).each(function(){
+					this.value = '';
+				});
+			}
+		};
+	});
+})(jQuery);

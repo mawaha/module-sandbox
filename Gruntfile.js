@@ -2,8 +2,13 @@ module.exports = function (grunt) {
 	'use strict'
 
 	grunt.initConfig({
+
+		pkg: grunt.file.readJSON('package.json'),
+
+		config: grunt.file.readJSON('gruntconfig.json'),
+
 		banner: '/*!\n' +
-				' * <%= pkg.name %> Theme version: <%= pkg.version %>\n' +
+				' * <%= pkg.name %> version: <%= pkg.version %>\n' +
 				' * <%= pkg.description %>\n' +
 				' * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author %> <%= pkg.url %>\n' +
 				' * Distributed under the <%= pkg.license %> license\n' +
@@ -69,6 +74,12 @@ module.exports = function (grunt) {
 				},
 				src: '<%= config.dest.scripts.path %>/<%= pkg.name %>.js',
 				dest: '<%= config.dest.scripts.path %>/<%= pkg.name %>.min.js'
+			}
+		},
+
+		strip_code: {
+			app: {
+				src: '<%= config.dest.scripts.path %>/<%= pkg.name %>.js'
 			}
 		},
 
@@ -138,7 +149,7 @@ module.exports = function (grunt) {
 
 			less: {
 				options: {
-					atBegin: true
+					atBegin: false
 				},
 
 				files: ['<%= config.src.styles.less.path %>/**/*.less'],
@@ -150,7 +161,12 @@ module.exports = function (grunt) {
 			js: {
 				files: ['<%= config.src.scripts.javascript.path %>/**/*.js'],
 
-				tasks: ['jasmine', 'newer:jshint:pre_concat', 'concat:app', 'jshint:post_concat', 'newer:uglify']
+				tasks: ['newer:jshint:pre_concat',
+						'concat:app',
+						'jshint:post_concat',
+						'strip_code:app',
+						'newer:uglify'
+						]
 			},
 
 			test: {
@@ -161,7 +177,7 @@ module.exports = function (grunt) {
 
 			htmlmin: {
 				options: {
-					atBegin: true
+					atBegin: false
 				},
 				files: ['<%= config.src.templates.path %>/**/*.ss'],
 				tasks: ['newer:htmlmin']
